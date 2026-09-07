@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Glycemic Protocol | Type 2 Diabetes Management</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <style>
+    @media print {
+      .no-print { display: none !important; }
+      body { background-color: #ffffff; color: #000000; }
+      .print-border { border: 1px solid #d1d5db !important; }
+    }
+  </style>
+</head>
+<body class="bg-stone-50 text-stone-800 font-sans antialiased min-h-screen">
+
+  <!-- TOP NAVIGATION BAR -->
+  <header class="bg-emerald-900 text-white sticky top-0 z-50 shadow-md no-print">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-3">
+      <div class="flex items-center space-x-3">
+        <div class="w-9 h-9 rounded-lg bg-emerald-700 flex items-center justify-center font-bold text-lg">
+          <i class="fa-solid fa-heart-pulse text-emerald-200"></i>
+        </div>
+        <div>
+          <h1 class="font-bold text-base md:text-lg leading-tight">Glycemic Control Dashboard</h1>
+          <p class="text-xs text-emerald-200">Targeting HbA1c 8.1% & Post-Meal Spikes</p>
+        </div>
+      </div>
+      <div class="flex items-center space-x-2 text-sm">
+        <button onclick="window.print()" class="bg-emerald-700 hover:bg-emerald-600 text-white px-3 py-1.5 rounded-md font-medium transition flex items-center gap-1.5 shadow-sm">
+          <i class="fa-solid fa-print"></i> <span>Print / Save PDF</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTAINER -->
+  <main class="max-w-6xl mx-auto px-4 py-6 space-y-6">
+
+    <!-- CLINICAL METRIC CARDS -->
+    <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div class="bg-white p-4 rounded-xl border border-stone-200 shadow-sm flex items-start justify-between">
+        <div>
+          <span class="text-xs uppercase font-bold text-stone-500 tracking-wider">Current HbA1c</span>
+          <div class="text-2xl font-extrabold text-red-600 mt-1">8.1%</div>
+          <p class="text-xs text-stone-500 mt-1">Target: Step down to &lt;7.0%</p>
+        </div>
+        <div class="p-2.5 bg-red-50 text-red-600 rounded-lg text-lg"><i class="fa-solid fa-chart-line"></i></div>
+      </div>
+
+      <div class="bg-white p-4 rounded-xl border border-stone-200 shadow-sm flex items-start justify-between">
+        <div>
+          <span class="text-xs uppercase font-bold text-stone-500 tracking-wider">Post-Meal Spike</span>
+          <div class="text-2xl font-extrabold text-amber-600 mt-1">320 <span class="text-sm font-normal">mg/dL</span></div>
+          <p class="text-xs text-stone-500 mt-1">Target: &lt;160–180 mg/dL</p>
+        </div>
+        <div class="p-2.5 bg-amber-50 text-amber-600 rounded-lg text-lg"><i class="fa-solid fa-triangle-exclamation"></i></div>
+      </div>
+
+      <div class="bg-white p-4 rounded-xl border border-stone-200 shadow-sm flex items-start justify-between">
+        <div>
+          <span class="text-xs uppercase font-bold text-stone-500 tracking-wider">Weight Goal</span>
+          <div class="text-2xl font-extrabold text-emerald-700 mt-1">90 kg</div>
+          <p class="text-xs text-stone-500 mt-1">Initial Target: -5% to -10%</p>
+        </div>
+        <div class="p-2.5 bg-emerald-50 text-emerald-700 rounded-lg text-lg"><i class="fa-solid fa-weight-scale"></i></div>
+      </div>
+
+      <div class="bg-white p-4 rounded-xl border border-stone-200 shadow-sm flex items-start justify-between">
+        <div>
+          <span class="text-xs uppercase font-bold text-stone-500 tracking-wider">Daily Energy Cap</span>
+          <div class="text-2xl font-extrabold text-blue-700 mt-1">1,600–1,750</div>
+          <p class="text-xs text-stone-500 mt-1">40% Carb | 30% Protein | 30% Fat</p>
+        </div>
+        <div class="p-2.5 bg-blue-50 text-blue-700 rounded-lg text-lg"><i class="fa-solid fa-fire-burner"></i></div>
+      </div>
+    </section>
+
+    <!-- 3 HIGH-IMPACT SPIKE CONTROLS -->
+    <section class="bg-emerald-800 text-white rounded-xl p-5 shadow-sm">
+      <h2 class="text-base font-bold uppercase tracking-wide text-emerald-200 mb-3">
+        <i class="fa-solid fa-shield-halved mr-1.5"></i> 3 Rules to Eliminate the 320 mg/dL Spike
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+        <div class="bg-emerald-900/60 p-3.5 rounded-lg border border-emerald-700/50">
+          <div class="font-bold text-emerald-100 flex items-center gap-2 mb-1">
+            <i class="fa-solid fa-person-walking text-emerald-400"></i> 15-Min Post-Meal Walk
+          </div>
+          <p class="text-xs text-emerald-200/90 leading-relaxed">
+            Never sit or lie down right after eating. Muscle contractions activate insulin-independent GLUT-4 channels, clearing glucose from blood.
+          </p>
+        </div>
+        <div class="bg-emerald-900/60 p-3.5 rounded-lg border border-emerald-700/50">
+          <div class="font-bold text-emerald-100 flex items-center gap-2 mb-1">
+            <i class="fa-solid fa-ban text-red-400"></i> Zero Liquid Sugars
+          </div>
+          <p class="text-xs text-emerald-200/90 leading-relaxed">
+            No fruit juices, sodas, or sugar in tea/coffee. Liquids bypass digestion and spike systemic blood glucose within 15 minutes.
+          </p>
+        </div>
+        <div class="bg-emerald-900/60 p-3.5 rounded-lg border border-emerald-700/50">
+          <div class="font-bold text-emerald-100 flex items-center gap-2 mb-1">
+            <i class="fa-solid fa-glass-water text-cyan-300"></i> 3.5 Liters Clean Water
+          </div>
+          <p class="text-xs text-emerald-200/90 leading-relaxed">
+            Sustained hydration assists the kidneys in safely filtering and excreting excess glucose through urine while preventing cellular dehydration.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 50-25-25 PLATE METHOD & FOOD SEQUENCING -->
+    <section class="bg-white rounded-xl p-5 border border-stone-200 shadow-sm">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-4 border-b border-stone-100 pb-3">
+        <div>
+          <h2 class="text-lg font-bold text-stone-800">The 50-25-25 Plate & Food Sequencing Protocol</h2>
+          <p class="text-xs text-stone-500">Clinical method to dampen post-prandial glycemic excursions</p>
+        </div>
+        <span class="text-xs font-semibold bg-emerald-100 text-emerald-800 px-2.5 py-1 rounded-full w-fit">
+          Sequence: Veggies → Protein → Carbohydrates
+        </span>
+      </div>
+
+      <!-- PLATE BAR -->
+      <div class="w-full rounded-lg overflow-hidden flex flex-col sm:flex-row text-xs font-semibold text-white text-center shadow-inner mb-4">
+        <div class="bg-emerald-700 p-3 sm:w-1/2 flex flex-col justify-center items-center">
+          <span class="font-bold text-sm">50% Half Plate</span>
+          <span class="text-emerald-100 font-normal mt-0.5">Non-Starchy Veggies & Salads (Eat 1st)</span>
+        </div>
+        <div class="bg-amber-700 p-3 sm:w-1/4 flex flex-col justify-center items-center">
+          <span class="font-bold text-sm">25% Quarter</span>
+          <span class="text-amber-100 font-normal mt-0.5">Lean Protein & Dal (Eat 2nd)</span>
+        </div>
+        <div class="bg-stone-600 p-3 sm:w-1/4 flex flex-col justify-center items-center">
+          <span class="font-bold text-sm">25% Quarter</span>
+          <span class="text-stone-200 font-normal mt-0.5">Complex Carbs (Eat Last)</span>
+        </div>
+      </div>
+
+      <div class="bg-stone-50 border border-stone-200 rounded-lg p-3 text-xs text-stone-600 leading-relaxed">
+        <strong>Why the Sequence Matters:</strong> Consuming non-starchy vegetables first coats the intestinal walls with a viscous fiber gel matrix. The protein and fats eaten second trigger satiety peptides (GLP-1). Carbohydrates eaten last are digested slowly, blunting the 2-hour blood sugar peak by up to 35–45%.
+      </div>
+    </section>
+
+    <!-- DAILY MEAL SCHEDULE WITH INTERACTIVE CHECKOFFS -->
+    <section class="bg-white rounded-xl p-5 border border-stone-200 shadow-sm">
+      <div class="flex items-center justify-between mb-4 border-b border-stone-100 pb-3">
+        <div>
+          <h2 class="text-lg font-bold text-stone-800">Daily Meal Schedule</h2>
+          <p class="text-xs text-stone-500">Check off each meal as you complete it</p>
+        </div>
+        <button onclick="resetMealChecks()" class="text-xs text-stone-500 hover:text-red-600 underline no-print">Reset Today's Checks</button>
+      </div>
+
+      <div class="space-y-3" id="mealList">
+        <!-- Early Morning -->
+        <div class="p-3.5 rounded-lg border border-stone-200 bg-stone-50 flex items-start gap-3 meal-item">
+          <input type="checkbox" class="mt-1 w-4 h-4 text-emerald-600 rounded border-stone-300 focus:ring-emerald-500 meal-check" />
+          <div class="flex-1 text-xs">
+            <div class="flex flex-wrap items-center justify-between gap-1 mb-1">
+              <span class="font-bold text-stone-800 text-sm">Early Morning</span>
+              <span class="bg-stone-200 text-stone-700 px-2 py-0.5 rounded text-[11px] font-medium">06:30 – 07:00 AM</span>
+            </div>
+            <p class="text-stone-700 font-medium">1 large glass warm water + soaked methi seeds (1 tsp) &bull; 5 peeled soaked almonds + 2 walnut halves</p>
+            <p class="text-stone-500 mt-1 italic">Fenugreek fiber delays glucose absorption; nuts provide slow healthy fats to suppress dawn spikes.</p>
+          </div>
+        </div>
+
+        <!-- Breakfast -->
+        <div class="p-3.5 rounded-lg border border-stone-200 bg-stone-50 flex items-start gap-3 meal-item">
+          <input type="checkbox" class="mt-1 w-4 h-4 text-emerald-600 rounded border-stone-300 focus:ring-emerald-500 meal-check" />
+          <div class="flex-1 text-xs">
+            <div class="flex flex-wrap items-center justify-between gap-1 mb-1">
+              <span class="font-bold text-stone-800 text-sm">Breakfast</span>
+              <span class="bg-stone-200 text-stone-700 px-2 py-0.5 rounded text-[11px] font-medium">08:00 – 08:30 AM</span>
+            </div>
+            <p class="text-stone-700 font-medium"><strong>Option 1:</strong> 2 Besan Chillas + mint chutney | <strong>Option 2:</strong> 2 Boiled Eggs / Omelet + 1 slice whole wheat toast | <strong>Option 3:</strong> 2 Millet Idlis + large bowl sambar</p>
+            <p class="text-stone-500 mt-1 italic">High protein & fiber start. Beverage: Unsweetened black tea/coffee or double-toned milk (no sugar).</p>
+          </div>
+        </div>
+
+        <!-- Mid Morning -->
+        <div class="p-3.5 rounded-lg border border-stone-200 bg-stone-50 flex items-start gap-3 meal-item">
+          <input type="checkbox" class="mt-1 w-4 h-4 text-emerald-600 rounded border-stone-300 focus:ring-emerald-500 meal-check" />
+          <div class="flex-1 text-xs">
+            <div class="flex flex-wrap items-center justify-between gap-1 mb-1">
+              <span class="font-bold text-stone-800 text-sm">Mid-Morning</span>
+              <span class="bg-stone-200 text-stone-700 px-2 py-0.5 rounded text-[11px] font-medium">11:00 AM</span>
+            </div>
+            <p class="text-stone-700 font-medium">1 tall glass Spiced Buttermilk (<em>Neer Mor / Chaas</em>) with curry leaves, ginger & roasted cumin OR 1 bowl sliced cucumbers with lemon</p>
+            <p class="text-stone-500 mt-1 italic">Hydrates, supports digestive gut flora, and prevents mid-day hunger without triggering insulin spikes.</p>
+          </div>
+        </div>
+
+        <!-- Lunch -->
+        <div class="p-3.5 rounded-lg border border-stone-200 bg-stone-50 flex items-start gap-3 meal-item">
+          <input type="checkbox" class="mt-1 w-4 h-4 text-emerald-600 rounded border-stone-300 focus:ring-emerald-500 meal-check" />
+          <div class="flex-1 text-xs">
+            <div class="flex flex-wrap items-center justify-between gap-1 mb-1">
+              <span class="font-bold text-stone-800 text-sm">Lunch (Follow Sequencing Strictly)</span>
+              <span class="bg-stone-200 text-stone-700 px-2 py-0.5 rounded text-[11px] font-medium">01:00 – 01:30 PM</span>
+            </div>
+            <p class="text-stone-700 font-medium">
+              <strong>1st:</strong> Cucumber-radish salad + 1 large bowl cooked greens (beans/bhindi/cabbage/lauki)<br>
+              <strong>2nd:</strong> 1 cup yellow moong dal / boiled rajma / chana / paneer / chicken or fish curry<br>
+              <strong>3rd:</strong> 2 small whole wheat phulkas (no ghee) OR 1 small cup cooked millets/brown rice
+            </p>
+            <p class="text-emerald-700 font-semibold mt-1">Remember: 15-minute brisk walk immediately after lunch!</p>
+          </div>
+        </div>
+
+        <!-- Evening Snack -->
+        <div class="p-3.5 rounded-lg border border-stone-200 bg-stone-50 flex items-start gap-3 meal-item">
+          <input type="checkbox" class="mt-1 w-4 h-4 text-emerald-600 rounded border-stone-300 focus:ring-emerald-500 meal-check" />
+          <div class="flex-1 text-xs">
+            <div class="flex flex-wrap items-center justify-between gap-1 mb-1">
+              <span class="font-bold text-stone-800 text-sm">Evening Snack</span>
+              <span class="bg-stone-200 text-stone-700 px-2 py-0.5 rounded text-[11px] font-medium">04:30 – 05:00 PM</span>
+            </div>
+            <p class="text-stone-700 font-medium">1 cup green tea / black coffee (unsweetened) + 1 small cup roasted whole chana (with husk) OR dry-roasted makhana</p>
+            <p class="text-stone-500 mt-1 italic">Low-GI snack (GI 28) with high satiety to prevent late-afternoon cravings.</p>
+          </div>
+        </div>
+
+        <!-- Dinner -->
+        <div class="p-3.5 rounded-lg border border-stone-200 bg-stone-50 flex items-start gap-3 meal-item">
+          <input type="checkbox" class="mt-1 w-4 h-4 text-emerald-600 rounded border-stone-300 focus:ring-emerald-500 meal-check" />
+          <div class="flex-1 text-xs">
+            <div class="flex flex-wrap items-center justify-between gap-1 mb-1">
+              <span class="font-bold text-stone-800 text-sm">Dinner</span>
+              <span class="bg-stone-200 text-stone-700 px-2 py-0.5 rounded text-[11px] font-medium">07:30 – 08:00 PM</span>
+            </div>
+            <p class="text-stone-700 font-medium"><strong>Option 1:</strong> Clear vegetable soup + 150g grilled paneer/tofu/chicken breast with sauteed veggies | <strong>Option 2:</strong> 1 phulka + vegetable curry + 1 cup dal</p>
+            <p class="text-stone-500 mt-1 italic">Low-carb dinner ensures normal fasting morning blood sugars. Finish at least 2.5–3 hours before sleeping.</p>
+          </div>
+        </div>
+
+        <!-- Bedtime -->
+        <div class="p-3.5 rounded-lg border border-stone-200 bg-stone-50 flex items-start gap-3 meal-item">
+          <input type="checkbox" class="mt-1 w-4 h-4 text-emerald-600 rounded border-stone-300 focus:ring-emerald-500 meal-check" />
+          <div class="flex-1 text-xs">
+            <div class="flex flex-wrap items-center justify-between gap-1 mb-1">
+              <span class="font-bold text-stone-800 text-sm">Bedtime</span>
+              <span class="bg-stone-200 text-stone-700 px-2 py-0.5 rounded text-[11px] font-medium">09:45 – 10:00 PM</span>
+            </div>
+            <p class="text-stone-700 font-medium">1 cup warm water or cinnamon-infused herbal tea (plus 2 walnut halves if prone to late hypoglycemia)</p>
+            <p class="text-stone-500 mt-1 italic">Cinnamon supports peripheral insulin sensitivity and calms nocturnal autonomic stress.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE GROCERY CHECKLIST -->
+    <section class="bg-white rounded-xl p-5 border border-stone-200 shadow-sm">
+      <div class="flex items-center justify-between mb-4 border-b border-stone-100 pb-3">
+        <div>
+          <h2 class="text-lg font-bold text-stone-800">Diabetic Grocery Checklist</h2>
+          <p class="text-xs text-stone-500">Items save automatically in your browser as you check them</p>
+        </div>
+        <button onclick="resetGroceryChecks()" class="text-xs text-stone-500 hover:text-red-600 underline no-print">Clear Checked Items</button>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" id="groceryGrid">
+        <!-- 1. Non-Starchy Veggies -->
+        <div class="p-3.5 rounded-lg border border-stone-200 bg-stone-50 text-xs">
+          <h3 class="font-bold text-emerald-800 border-b border-stone-200 pb-1.5 mb-2 flex items-center gap-1.5">
+            <i class="fa-solid fa-carrot text-emerald-600"></i> 1. Fresh Veggies & Greens
+          </h3>
+          <div class="space-y-1.5 grocery-items">
+            <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" class="rounded text-emerald-600 g-check" data-id="g1"> Cabbage, Cauliflower, Broccoli</label>
+            <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" class="rounded text-emerald-600 g-check" data-id="g2"> Bottle Gourd (Lauki / Surakkai)</label>
+            <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" class="rounded text-emerald-600 g-check" data-id="g3"> Ridge Gourd (Turai / Peerkangai)</label>
+            <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" class="rounded text-emerald-600 g-check" data-id="g4"> French Beans & Cluster Beans</label>
+            <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" class="rounded text-emerald-600 g-check" data-id="g5"> Lady's Finger (Bhindi / Vendaikkai)</label>
+            <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" class="rounded text-emerald-600 g-check" data-id="g6"> Cucumbers, Tomatoes, Radish</label>
+            <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" class="rounded text-emerald-600 g-check" data-id="g7"> Palak (Spinach) & Fresh Methi</label>
+            <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" class="rounded text-emerald-600 g-check" data-id="g8"> Coriander, Mint, Curry leaves, Ginger</label>
+          </div>
+        </div>
+
+        <!-- 2. Low GI Fruits -->
+        <div class="p-3.5 rounded-lg border border-stone-200 bg-stone-50 text-xs">
+          <h3 class="font-bold text-emerald-800 border-b border-stone-200 pb-1.5 mb-2 flex items-center gap-1.5">
+            <i class="fa-solid fa-apple-whole text-emerald-600"></i> 2. Low-GI Fruits (1/day)
+          </h3>
+          <div class="space-y-1.5 grocery-items">
+            <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" class="rounded text-emerald-600 g-check" data-id="g9"> Fresh firm Guavas</label>
+            <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" class="rounded text-emerald-600 g-check" data-id="g10"> Tart Green Apples</label>
+            <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" class="rounded text-emerald-600 g-check" data-id="g11"> Fresh Papaya (small bowl)</label>
+            <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" class="rounded text-emerald-600 g-check" data-id="g12"> Pomegranate (seeds only, max 1/2 cup)</label>
+          </div>
+        </div>
+
+        <!-- 3. Grains & Flours -->
+        <div class="p-3.5 rounded-lg border border-stone-200 bg-stone-50 text-xs">
+          <h3 class="font-bold text-emerald-800 border-b border-stone-200 pb-1.5 mb-2 flex items-center gap-1.5">
+            <i class="fa-solid fa-wheat-awn text-emerald-600"></i> 3. Whole Grains & Millets
+          </h3>
+          <div class="space-y-1.5 grocery-items">
+            <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" class="rounded text-emerald-600 g-check" data-id="g13"> Besan (Bengal Gram Flour)</label>
+            <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" class="rounded text-emerald-600 g-check" data-id="g14"> 100% Stoneground Whole Wheat Atta</label>
+            <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" class="rounded text-emerald-600 g-check" data-id="g15"> Foxtail Millet (Thinai)</label>
+            <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" class="rounded text-emerald-600 g-check" data-id="g16"> Barnyard Millet (Kuthiraivali)</label>
+            <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" class="rounded text-emerald-600 g-check" data-id="g17"> Traditional Rolled Oats (Unflavored)</label>
+          </div>
+        </div>
+
+        <!-- 4. Proteins & Dals -->
+        <div class="p-3.5 rounded-lg border border-stone-200 bg-stone-50 text-xs">
+          <h3 class="font-bold text-emerald-800 border-b border-stone-200 pb-1.5 mb-2 flex items-center gap-1.5">
+            <i class="fa-solid fa-egg text-emerald-600"></i> 4. High-Protein Staples
+          </h3>
+          <div class="space-y-1.5 grocery-items">
+            <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" class="rounded text-emerald-600 g-check" data-id="g18"> Whole Green Moong (for sprouting)</label>
+            <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" class="rounded text-emerald-600 g-check" data-id="g19"> Yellow Moong Dal & Toor Dal</label>
+            <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" class="rounded text-emerald-600 g-check" data-id="g20"> Kala Chana (Black Chickpeas)</label>
+            <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" class="rounded text-emerald-600 g-check" data-id="g21"> Low-Fat Paneer / Organic Tofu</label>
+            <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" class="rounded text-emerald-600 g-check" data-id="g22"> Fresh Eggs</label>
+            <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" class="rounded text-emerald-600 g-check" data-id="g23"> Skinless Chicken Breast / White Fish</label>
+          </div>
+        </div>
+
+        <!-- 5. Dairy & Measured Fats -->
+        <div class="p-3.5 rounded-lg border border-stone-200 bg-stone-50 text-xs">
+          <h3 class="font-bold text-emerald-800 border-b border-stone-200 pb-1.5 mb-2 flex items-center gap-1.5">
+            <i class="fa-solid fa-bottle-water text-emerald-600"></i> 5. Dairy & Measured Fats
+          </h3>
+          <div class="space-y-1.5 grocery-items">
+            <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" class="rounded text-emerald-600 g-check" data-id="g24"> Plain Toned / Skimmed Curd (Dahi)</label>
+            <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" class="rounded text-emerald-600 g-check" data-id="g25"> Double-Toned Milk (zero sugar)</label>
+            <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" class="rounded text-emerald-600 g-check" data-id="g26"> Mustard Oil / Virgin Olive Oil</label>
+            <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" class="rounded text-emerald-600 g-check" data-id="g27"> Pure Cow Ghee (use 1/2 tsp measure)</label>
+          </div>
+        </div>
+
+        <!-- 6. Smart Snacks & Spices -->
+        <div class="p-3.5 rounded-lg border border-stone-200 bg-stone-50 text-xs">
+          <h3 class="font-bold text-emerald-800 border-b border-stone-200 pb-1.5 mb-2 flex items-center gap-1.5">
+            <i class="fa-solid fa-seedling text-emerald-600"></i> 6. Smart Snacks & Spices
+          </h3>
+          <div class="space-y-1.5 grocery-items">
+            <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" class="rounded text-emerald-600 g-check" data-id="g28"> Raw Almonds (Badam) & Walnuts</label>
+            <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" class="rounded text-emerald-600 g-check" data-id="g29"> Roasted Chana (whole with husk)</label>
+            <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" class="rounded text-emerald-600 g-check" data-id="g30"> Raw Makhana (Foxnuts)</label>
+            <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" class="rounded text-emerald-600 g-check" data-id="g31"> Whole Methi Seeds (Fenugreek)</label>
+            <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" class="rounded text-emerald-600 g-check" data-id="g32"> Whole-leaf Green Tea / Cinnamon</label>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DAILY BLOOD SUGAR & WALK LOG -->
+    <section class="bg-white rounded-xl p-5 border border-stone-200 shadow-sm no-print">
+      <h2 class="text-lg font-bold text-stone-800 mb-1">Log Daily Readings & Walks</h2>
+      <p class="text-xs text-stone-500 mb-4">Track your 2-hour post-meal spikes to share with your doctor</p>
+
+      <form id="sugarLogForm" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-3 mb-4 text-xs">
+        <div>
+          <label class="block font-semibold text-stone-700 mb-1">Time Point</label>
+          <select id="logTime" class="w-full border border-stone-300 rounded-md p-2 bg-white focus:ring-emerald-500 focus:border-emerald-500">
+            <option>Fasting (Morning)</option>
+            <option>2-Hr Post-Breakfast</option>
+            <option>2-Hr Post-Lunch</option>
+            <option>2-Hr Post-Dinner</option>
+            <option>Bedtime</option>
+          </select>
+        </div>
+        <div>
+          <label class="block font-semibold text-stone-700 mb-1">Glucose (mg/dL)</label>
+          <input type="number" id="logValue" placeholder="e.g. 145" required class="w-full border border-stone-300 rounded-md p-2 focus:ring-emerald-500 focus:border-emerald-500" />
+        </div>
+        <div>
+          <label class="block font-semibold text-stone-700 mb-1">Meal Eaten</label>
+          <input type="text" id="logMeal" placeholder="e.g. 2 phulkas, dal, sabzi" class="w-full border border-stone-300 rounded-md p-2 focus:ring-emerald-500 focus:border-emerald-500" />
+        </div>
+        <div>
+          <label class="block font-semibold text-stone-700 mb-1">15-Min Walk Done?</label>
+          <select id="logWalk" class="w-full border border-stone-300 rounded-md p-2 bg-white focus:ring-emerald-500 focus:border-emerald-500">
+            <option value="Yes">Yes (Completed)</option>
+            <option value="No">No</option>
+          </select>
+        </div>
+        <div class="flex items-end">
+          <button type="submit" class="w-full bg-emerald-800 hover:bg-emerald-700 text-white font-bold p-2 rounded-md transition shadow-sm">
+            Add Entry
+          </button>
+        </div>
+      </form>
+
+      <!-- LOG TABLE -->
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-xs border border-stone-200 rounded-lg overflow-hidden">
+          <thead class="bg-stone-100 text-stone-700 font-bold border-b border-stone-200">
+            <tr>
+              <th class="p-2.5">Date & Time</th>
+              <th class="p-2.5">Point</th>
+              <th class="p-2.5">Glucose Level</th>
+              <th class="p-2.5">Meal Details</th>
+              <th class="p-2.5">15-Min Walk</th>
+              <th class="p-2.5 text-right">Action</th>
+            </tr>
+          </thead>
+          <tbody id="logTableBody" class="divide-y divide-stone-200 bg-white">
+            <!-- Dynamic rows inserted by JS -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- MEDICAL NOTICE FOOTER -->
+    <footer class="text-center text-[11px] text-stone-500 pt-3 pb-8 leading-relaxed">
+      <p><strong>Clinical Disclaimer:</strong> This web tool is for dietary and lifestyle management. Because adopting this dietary protocol rapidly improves insulin sensitivity, monitor blood sugar levels daily and consult your doctor to adjust any antidiabetic medication dosages safely.</p>
+    </footer>
+
+  </main>
+
+  <!-- JAVASCRIPT FOR LOCAL STORAGE & LOGGING -->
+  <script>
+    // 1. MEAL CHECKBOX LOCAL STORAGE
+    const mealChecks = document.querySelectorAll('.meal-check');
+    mealChecks.forEach((chk, index) => {
+      const saved = localStorage.getItem('meal_chk_' + index);
+      if (saved === 'true') chk.checked = true;
+      chk.addEventListener('change', () => {
+        localStorage.setItem('meal_chk_' + index, chk.checked);
+      });
+    });
+
+    function resetMealChecks() {
+      mealChecks.forEach((chk, index) => {
+        chk.checked = false;
+        localStorage.removeItem('meal_chk_' + index);
+      });
+    }
+
+    // 2. GROCERY CHECKBOX LOCAL STORAGE
+    const groceryChecks = document.querySelectorAll('.g-check');
+    groceryChecks.forEach(chk => {
+      const id = chk.getAttribute('data-id');
+      if (localStorage.getItem('grocery_' + id) === 'true') chk.checked = true;
+      chk.addEventListener('change', () => {
+        localStorage.setItem('grocery_' + id, chk.checked);
+      });
+    });
+
+    function resetGroceryChecks() {
+      groceryChecks.forEach(chk => {
+        chk.checked = false;
+        const id = chk.getAttribute('data-id');
+        localStorage.removeItem('grocery_' + id);
+      });
+    }
+
+    // 3. GLUCOSE TRACKER LOGIC
+    const sugarForm = document.getElementById('sugarLogForm');
+    const logTableBody = document.getElementById('logTableBody');
+
+    function getLogs() {
+      return JSON.parse(localStorage.getItem('glucose_logs') || '[]');
+    }
+
+    function saveLogs(logs) {
+      localStorage.setItem('glucose_logs', JSON.stringify(logs));
+      renderLogs();
+    }
+
+    function renderLogs() {
+      const logs = getLogs();
+      if (logs.length === 0) {
+        logTableBody.innerHTML = `<tr><td colspan="6" class="p-4 text-center text-stone-400">No blood sugar entries recorded yet. Enter your first reading above!</td></tr>`;
+        return;
+      }
+      logTableBody.innerHTML = logs.map((item, idx) => {
+        const val = Number(item.val);
+        const badgeClass = val > 200 ? 'bg-red-100 text-red-700' : (val > 140 ? 'bg-amber-100 text-amber-700' : 'bg-emerald-100 text-emerald-700');
+        return `
+          <tr class="hover:bg-stone-50">
+            <td class="p-2.5 text-stone-500">${item.date}</td>
+            <td class="p-2.5 font-medium">${item.time}</td>
+            <td class="p-2.5"><span class="px-2 py-0.5 rounded font-bold ${badgeClass}">${val} mg/dL</span></td>
+            <td class="p-2.5 text-stone-700">${item.meal || '—'}</td>
+            <td class="p-2.5">${item.walk === 'Yes' ? '<span class="text-emerald-700 font-semibold"><i class="fa-solid fa-check"></i> Yes</span>' : '<span class="text-stone-400">No</span>'}</td>
+            <td class="p-2.5 text-right"><button onclick="deleteLog(${idx})" class="text-red-500 hover:text-red-700"><i class="fa-solid fa-trash"></i></button></td>
+          </tr>
+        `;
+      }).reverse().join('');
+    }
+
+    sugarForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const logs = getLogs();
+      const newEntry = {
+        date: new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' }),
+        time: document.getElementById('logTime').value,
+        val: document.getElementById('logValue').value,
+        meal: document.getElementById('logMeal').value,
+        walk: document.getElementById('logWalk').value
+      };
+      logs.push(newEntry);
+      saveLogs(logs);
+      document.getElementById('logValue').value = '';
+      document.getElementById('logMeal').value = '';
+    });
+
+    function deleteLog(index) {
+      const logs = getLogs();
+      logs.splice(index, 1);
+      saveLogs(logs);
+    }
+
+    // Initial Render
+    renderLogs();
+  </script>
+</body>
+</html>
